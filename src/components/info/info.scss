@@ -1,9 +1,23 @@
 .Info{
   background-color: #b6c7ff;
-  height: 200px;
+  height: 100px;
   width: auto;
-  display: flex;
-  justify-content: center;
+  text-align: center;
+
   margin: 10px;
   border-radius: 0 0 10px 10px;
+  .informer{
+    display: flex;
+    justify-content: space-evenly;
+  }
+  img{
+    width: 30px;
+  }
+}
+.wind{
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: bold;
+
 }

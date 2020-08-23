@@ -45,6 +45,7 @@ export const getWeatherDataAsync = (event) => {
         try {
             let searchvalue = event.target.elements.city.value;
             event.preventDefault()
+
             const response = await Axios(`http://api.openweathermap.org/data/2.5/weather?q=${searchvalue}&appid=${API_KEY}&units=metric`)
             dispatch(getWeatherData(response.data))
 
