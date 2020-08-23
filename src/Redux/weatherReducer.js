@@ -5,7 +5,7 @@ const DATA_WORKER = 'DATA_WORKER'
 const FAILURE = "FAILURE"
 
 const INITIAL_STATE = {
-    weatherData: {},
+    weatherData: null,
 
 }
 
@@ -14,7 +14,7 @@ export const weatherReducer = (state=INITIAL_STATE, action ) => {
         case DATA_WORKER:
             return {
                 ...state,
-                data: state= action.payload,
+                weatherData: action.payload,
             }
         case FAILURE:
             return {
@@ -47,7 +47,7 @@ export const getWeatherDataAsync = (event) => {
             event.preventDefault()
             const response = await Axios(`http://api.openweathermap.org/data/2.5/weather?q=${searchvalue}&appid=${API_KEY}&units=metric`)
             dispatch(getWeatherData(response.data))
-            console.log(response.data, "aaaa")
+
         } catch (err) {
             dispatch(Failure(err))
         }
