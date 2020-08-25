@@ -7,13 +7,16 @@ import {getWeatherDataAsync} from "../../Redux/weatherReducer";
 
 
 
-const Search = ({ getWeatherDataAsync},event) => {
+const Search = ({ getWeatherDataAsync}) => {
 
- return(
+
+
+    return(
             <div className="Search">
+
                 <form onSubmit={getWeatherDataAsync} >
 
-                   <input  type="text"   name="city" placeholder="City"/>
+                   <input  id="b" type="text" pattern="^[a-zA-Z]+$" name="city" placeholder="City" required/>
                         <button >Search</button>
                 </form>
             </div>

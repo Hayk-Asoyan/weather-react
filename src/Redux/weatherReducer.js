@@ -41,13 +41,18 @@ const Failure = (error) => ({
 
 export const getWeatherDataAsync = (event) => {
     return async (dispatch) => {
+        let a = document.getElementById("b").value
+        a = a.replace(/\s+/g,'');
 
         try {
+            event.preventDefault()
+             if (!a ) return;
             let searchvalue = event.target.elements.city.value;
 
-            event.preventDefault()
+
 
             event.target.reset()
+
             const response = await Axios(`http://api.openweathermap.org/data/2.5/weather?q=${searchvalue}&appid=${API_KEY}&units=metric`)
             dispatch(getWeatherData(response.data))
 
